@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big Responsive Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        .sidebar {
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar-collapsed {
+            transform: translateX(-250px);
+        }
+
+        .sidebar-expanded {
+            transform: translateX(0);
+        }
+
+        .main-content {
+            transition: margin-left 0.3s ease;
+        }
+
+        .main-content-collapsed {
+            margin-left: 0;
+        }
+
+        .main-content-expanded {
+            margin-left: 250px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Sidebar -->
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard with Sidebar Toggle</title>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        <style>
+            /* Sidebar styles */
+            .sidebar {
+                transition: transform 0.3s ease;
+            }
+
+            .sidebar-collapsed {
+                transform: translateX(-250px);
+            }
+
+            .sidebar-expanded {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                transition: margin-left 0.3s ease;
+            }
+
+            .main-content-collapsed {
+                margin-left: 0;
+            }
+
+            .main-content-expanded {
+                margin-left: 250px;
+            }
+
+            /* Toggle button styles */
+            #sidebar-open-btn {
+                display: none;
+            }
+
+            .main-content-collapsed #sidebar-open-btn {
+                display: block;
+            }
+        </style>
+    </head>
+
+    <body class="bg-gray-100">
+
+        <!-- Sidebar -->
+        <div id="sidebar"
+            class="sidebar fixed top-0 left-0 w-64 h-full bg-blue-800 text-white transform sidebar-expanded">
+            <div class="flex justify-between items-center p-4">
+                <h1 class="text-2xl font-bold">Dashboard</h1>
+                <button id="sidebar-toggle" class="lg:hidden text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+            <nav class="mt-4">
+                <ul>
+                    <li><a href="#" class="block py-2 px-4 hover:bg-blue-700">Home</a></li>
+                    <li><a href="#" class="block py-2 px-4 hover:bg-blue-700">Profile</a></li>
+                    <li><a href="#" class="block py-2 px-4 hover:bg-blue-700">Messages</a></li>
+                    <li><a href="#" class="block py-2 px-4 hover:bg-blue-700">Analytics</a></li>
+                    <li><a href="#" class="block py-2 px-4 hover:bg-blue-700">Settings</a></li>
+                    <li><a href="#" class="block py-2 px-4 hover:bg-blue-700">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Main Content Area -->
+        <div id="main-content" class="main-content lg:ml-64 p-4 main-content-expanded relative">
+            <!-- Sidebar Open Button -->
+            <button id="sidebar-open-btn"
+                class="absolute top-4 left-4 bg-blue-600 text-white p-2 rounded focus:outline-none lg:hidden"
+                title="Open Sidebar">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h18m-6 6h6M3 6h6">
+                    </path>
+                </svg>
+            </button>
+
+            <!-- Content Area -->
+            <header class="bg-blue-600 text-white p-4 flex items-center justify-between rounded-lg">
+                <div class="text-lg font-bold" style="margin-left: 35%;">Dashboard </div>
+
+            </header>
+            <!-- Additional Content goes here -->
+        </div>
+
+        <script>
+            // Sidebar Toggle
+            const sidebar = document.getElementById('sidebar');
+            const sidebarToggle = document.getElementById('sidebar-toggle');
+            const sidebarOpenBtn = document.getElementById('sidebar-open-btn');
+            const mainContent = document.getElementById('main-content');
+
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('sidebar-collapsed');
+                sidebar.classList.toggle('sidebar-expanded');
+                mainContent.classList.toggle('main-content-collapsed');
+                mainContent.classList.toggle('main-content-expanded');
+            });
+
+            sidebarOpenBtn.addEventListener('click', () => {
+                sidebar.classList.toggle('sidebar-collapsed');
+                sidebar.classList.toggle('sidebar-expanded');
+                mainContent.classList.toggle('main-content-collapsed');
+                mainContent.classList.toggle('main-content-expanded');
+            });
+        </script>
+
+    </body>
+
+    </html>
+
+
+    <!-- Dashboard Widgets -->
+    <section class="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Widget 1 -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-bold mb-2">Total Users</h2>
+            <p class="text-3xl font-bold text-blue-600">1,245</p>
+            <p class="text-gray-600">Since last month</p>
+        </div>
+
+        <!-- Widget 2 -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-bold mb-2">Revenue</h2>
+            <p class="text-3xl font-bold text-green-600">$58,245</p>
+            <p class="text-gray-600">This month</p>
+        </div>
+
+        <!-- Widget 3 -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-bold mb-2">New Orders</h2>
+            <p class="text-3xl font-bold text-yellow-600">350</p>
+            <p class="text-gray-600">Today</p>
+        </div>
+
+        <!-- Widget 4 -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-bold mb-2">Server Load</h2>
+            <p class="text-3xl font-bold text-red-600">75%</p>
+            <p class="text-gray-600">Current</p>
+        </div>
+    </section>
+
+    <!-- Charts and Graphs -->
+    <section class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Chart 1 -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-bold mb-4">Monthly Sales</h2>
+            <div class="h-64 bg-gray-200 rounded-lg">Monthly Sales Overview: This section provides a visual
+                representation of the company's monthly sales performance. The chart displayed here will help you
+                quickly understand sales trends, identify peak selling periods, and track revenue growth over time. It's
+                an essential tool for monitoring progress and making informed business decisions.</div>
+        </div>
+
+        <!-- Chart 2 -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-bold mb-4">User Activity</h2>
+            <div class="h-64 bg-gray-200 rounded-lg">User Activity Insights: This chart illustrates the activity levels
+                of users over a specified period. It highlights trends in user engagement, such as peak activity times,
+                frequent user actions, and overall participation. Analyzing this data helps in understanding user
+                behavior, optimizing user experience, and making data-driven decisions to enhance engagement strategies.
+            </div>
+        </div>
+    </section>
+
+    <!-- Table -->
+    <section class="mt-8 bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-xl font-bold mb-4">Recent Orders</h2>
+        <div class="overflow-x-auto">
+            <table class="w-full table-auto">
+                <thead>
+                    <tr class="bg-gray-200 text-gray-600 text-left">
+                        <th class="px-4 py-2">Order ID</th>
+                        <th class="px-4 py-2">Customer</th>
+                        <th class="px-4 py-2">Date</th>
+                        <th class="px-4 py-2">Status</th>
+                        <th class="px-4 py-2">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border px-4 py-2">#1023</td>
+                        <td class="border px-4 py-2">John Doe</td>
+                        <td class="border px-4 py-2">08/25/2024</td>
+                        <td class="border px-4 py-2 text-green-600">Completed</td>
+                        <td class="border px-4 py-2">$350</td>
+                    </tr>
+                    <tr>
+                        <td class="border px-4 py-2">#1024</td>
+                        <td class="border px-4 py-2">Jane Smith</td>
+                        <td class="border px-4 py-2">08/25/2024</td>
+                        <td class="border px-4 py-2 text-yellow-600">Pending</td>
+                        <td class="border px-4 py-2">$450</td>
+                    </tr>
+                    <tr>
+                        <td class="border px-4 py-2">#1027</td>
+                        <td class="border px-4 py-2">Alex</td>
+                        <td class="border px-4 py-2">08/25/2024</td>
+                        <td class="border px-4 py-2 text-green-600">Completed</td>
+                        <td class="border px-4 py-2">$350</td>
+                    </tr>
+                    <tr>
+                        <td class="border px-4 py-2">#1020</td>
+                        <td class="border px-4 py-2">Jane Smith</td>
+                        <td class="border px-4 py-2">08/25/2024</td>
+                        <td class="border px-4 py-2 text-yellow-600">Pending</td>
+                        <td class="border px-4 py-2">$450</td>
+                    </tr>
+                    <tr>
+                        <td class="border px-4 py-2">#1023</td>
+                        <td class="border px-4 py-2">John Doe</td>
+                        <td class="border px-4 py-2">08/25/2024</td>
+                        <td class="border px-4 py-2 text-green-600">Completed</td>
+                        <td class="border px-4 py-2">$350</td>
+                    </tr>
+                    <tr>
+                        <td class="border px-4 py-2">#1024</td>
+                        <td class="border px-4 py-2">Jane Smith</td>
+                        <td class="border px-4 py-2">08/25/2024</td>
+                        <td class="border px-4 py-2 text-yellow-600">Pending</td>
+                        <td class="border px-4 py-2">$450</td>
+                    </tr>
+                    <tr>
+                        <td class="border px-4 py-2">#1027</td>
+                        <td class="border px-4 py-2">Alex</td>
+                        <td class="border px-4 py-2">08/25/2024</td>
+                        <td class="border px-4 py-2 text-green-600">Completed</td>
+                        <td class="border px-4 py-2">$350</td>
+                    </tr>
+                    <tr>
+                        <td class="border px-4 py-2">#1020</td>
+                        <td class="border px-4 py-2">Jane Smith</td>
+                        <td class="border px-4 py-2">08/25/2024</td>
+                        <td class="border px-4 py-2 text-yellow-600">Pending</td>
+                        <td class="border px-4 py-2">$450</td>
+                    </tr>
+
+                    <!-- Additional rows can be added here -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+     <!-- Footer -->
+<footer class="bg-blue-800 text-white py-6 mt-8 rounded-t-lg">
+    <div class="container mx-auto flex flex-col lg:flex-row items-center justify-between">
+        <!-- Footer Links -->
+        <div class="mb-4 lg:mb-0">
+            <h2 class="text-xl font-semibold mb-2">Quick Links</h2>
+            <ul class="flex flex-col lg:flex-row space-y-2 lg:space-y-0 lg:space-x-6" style="margin-right: 260px;" >
+                <li><a href="#" class="hover:text-blue-400">Home</a></li>
+                <li><a href="#" class="hover:text-blue-400">About</a></li>
+                <li><a href="#" class="hover:text-blue-400">Services</a></li>
+                <li><a href="#" class="hover:text-blue-400">Contact</a></li>
+            </ul>
+        </div>
+        <!-- Social Media Links -->
+        <div class="mb-4 lg:mb-0">
+            <h2 class="text-xl font-semibold mb-2">Follow Us</h2>
+            <div class="flex space-x-4">
+                <a href="#" class="text-white hover:text-blue-400"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6h6v-6h-6zm0 0v6h6v-6h-6zm0 0v6h6v-6h-6zm-2 6v-6h-4v6h4zm0 0v6h-4v-6h4zm0 0v6h-4v-6h4zm0 0v6h-4v-6h4zm0 0v6h-4v-6h4zm0 0v6h-4v-6h4zm0 0v6h-4v-6h4zm0 0v6h-4v-6h4zm0 0v6h-4v-6h4zm0 0v6h-4v-6h4z"/></svg></a>
+                <a href="#" class="text-white hover:text-blue-400"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3l14 9-14 9V3zm0 0l14 9-14 9V3zm0 0l14 9-14 9V3zm0 0l14 9-14 9V3zm0 0l14 9-14 9V3z"/></svg></a>
+                <a href="#" class="text-white hover:text-blue-400"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h8m-8 4h8M6 18h12M4 6h16m-6 6h6m-6 4h6m-6 4h6"/></svg></a>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div>
+            <p class="text-center text-sm">&copy; 2024 Beautiful Dashboard. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+    </div>
+
+
+
+</body>
+
+</html>
